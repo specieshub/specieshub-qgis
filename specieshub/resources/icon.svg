@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162 205" width="24" height="30">
+  <!-- The SpeciesHub symbol (public/logo/sh_symbol_light.png traced by hand in its own
+       162 x 205 pixel space): the pin, the upper bar from the centre dot to the right rim,
+       the lower bar from the left rim to the centre dot -->
+  <g fill="#00639A">
+    <path fill-rule="evenodd" d="M9.5 80A71 71 0 0 1 151.5 80C151.5 125 113 168 80.5 195C48 168 9.5 125 9.5 80ZM25 80A55.5 55.5 0 0 1 136 80C136 118 108 152 80.5 174C53 152 25 118 25 80Z"/>
+    <rect x="80" y="72.5" width="66" height="17" rx="8.5"/>
+    <circle cx="80.5" cy="82.5" r="13.5"/>
+    <rect x="30" y="122" width="52" height="16" rx="8"/>
+    <circle cx="80.5" cy="130" r="13.5"/>
+  </g>
+</svg>

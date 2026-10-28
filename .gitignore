@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.zip
+.DS_Store
+*.gpkg
+*.gpkg-*
+
+# Internal notes (design record, status) - kept local, not published
+PLAN.md
+STATUS.md
