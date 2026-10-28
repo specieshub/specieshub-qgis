@@ -14,6 +14,7 @@ from qgis.PyQt.QtWidgets import (QDialog, QVBoxLayout, QHBoxLayout, QFormLayout,
 from ..api import ApiError
 from ..compat import enum_value
 from ..model import LayerRequest, CONTAINER_ALL, CONTAINER_PRIVATE, CONTAINER_GROUP
+from .style import BLUE, primary, link
 
 SEARCH_DEBOUNCE_MS = 350
 COUNT_DEBOUNCE_MS = 400
@@ -21,7 +22,6 @@ COUNT_DEBOUNCE_MS = 400
 # and under a quarter of a second from four letters on (measured 2026-10-28)
 MIN_SEARCH_CHARS = 4
 DEFAULT_FILE = 'specieshub_observations.gpkg'
-BLUE = '#00639B'
 
 
 class FlowLayout(QLayout):
@@ -286,9 +286,7 @@ class AddLayerDialog(QDialog):
         self.count_label = QLabel('')
         self.count_label.setStyleSheet('color: palette(mid);')
         self.recount = QPushButton('Recount')
-        self.recount.setFlat(True)
-        self.recount.setCursor(enum_value(Qt, 'CursorShape', 'PointingHandCursor'))
-        self.recount.setStyleSheet('QPushButton { color: %s; border: none; padding: 0 6px; }' % BLUE)
+        link(self.recount)
         self.recount.clicked.connect(self._count)
         foot.addWidget(self.count_label)
         foot.addWidget(self.recount)
@@ -297,9 +295,7 @@ class AddLayerDialog(QDialog):
         cancel.clicked.connect(self.reject)
         self.load = QPushButton('Load')
         self.load.setDefault(True)
-        self.load.setStyleSheet('QPushButton { background: %s; color: white; border: none; border-radius: 6px; padding: 7px 18px; font-weight: 600; }'
-                                'QPushButton:hover { background: #00517F; }'
-                                'QPushButton:disabled { background: rgba(127, 127, 127, 0.3); }' % BLUE)
+        primary(self.load)
         self.load.clicked.connect(self.accept)
         foot.addWidget(cancel)
         foot.addWidget(self.load)

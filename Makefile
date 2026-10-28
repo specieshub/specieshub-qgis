@@ -15,8 +15,11 @@ deploy:
 	  if [ -d "$$p" ]; then rm -rf "$$p/$(PLUGIN)"; cp -R $(PLUGIN) "$$p/$(PLUGIN)"; echo "deployed to $$p"; fi; \
 	done
 
+# plugins.qgis.org requires LICENSE inside the plugin folder of the zip.
 zip: clean
-	zip -r $(PLUGIN).zip $(PLUGIN) -x '*/__pycache__/*' '*.pyc'
+	mkdir -p build && cp -R $(PLUGIN) build/ && cp LICENSE build/$(PLUGIN)/
+	cd build && zip -rq ../$(PLUGIN).zip $(PLUGIN) -x '*/__pycache__/*' '*.pyc' '*.DS_Store'
+	rm -rf build
 
 clean:
-	find $(PLUGIN) tests -name __pycache__ -type d -exec rm -rf {} + 2>/dev/null; rm -f $(PLUGIN).zip
+	find $(PLUGIN) tests -name __pycache__ -type d -exec rm -rf {} + 2>/dev/null; rm -rf build $(PLUGIN).zip

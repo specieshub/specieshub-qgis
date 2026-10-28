@@ -2,13 +2,21 @@
 styles, a muted caption, and a spinner."""
 
 from qgis.PyQt.QtCore import QTimer, Qt, QRectF
-from qgis.PyQt.QtGui import QPainter, QPen, QColor
+from qgis.PyQt.QtGui import QPainter, QPen, QColor, QPalette
 from qgis.PyQt.QtWidgets import QWidget, QLabel
 
 from ..compat import enum_value
 
 BLUE = '#00639B'
 BLUE_DARK = '#00517F'
+# The blue as text or a thin line on a dark theme: #00639B is unreadable there
+BLUE_ON_DARK = '#93CCFF'
+
+
+def accent(widget):
+    """The blue for text and lines on this widget's background."""
+    window = widget.palette().color(enum_value(QPalette, 'ColorRole', 'Window'))
+    return BLUE_ON_DARK if window.lightness() < 128 else BLUE
 
 
 def primary(button):
@@ -25,7 +33,7 @@ def secondary(button):
 def link(button):
     button.setFlat(True)
     button.setCursor(enum_value(Qt, 'CursorShape', 'PointingHandCursor'))
-    button.setStyleSheet('QPushButton { color: %s; border: none; padding: 0 4px; }' % BLUE)
+    button.setStyleSheet('QPushButton { color: %s; border: none; padding: 0 4px; }' % accent(button))
 
 
 def caption(text=''):
@@ -36,7 +44,7 @@ def caption(text=''):
 
 
 class Spinner(QWidget):
-    """An arc going round, in the blue; runs only while shown."""
+    """An arc going round, in the theme's blue; runs only while shown."""
 
     def __init__(self, parent=None, size=32):
         super().__init__(parent)
@@ -61,7 +69,7 @@ class Spinner(QWidget):
     def paintEvent(self, event):
         painter = QPainter(self)
         painter.setRenderHint(enum_value(QPainter, 'RenderHint', 'Antialiasing'))
-        pen = QPen(QColor(BLUE))
+        pen = QPen(QColor(accent(self)))
         pen.setWidth(3)
         pen.setCapStyle(enum_value(Qt, 'PenCapStyle', 'RoundCap'))
         painter.setPen(pen)

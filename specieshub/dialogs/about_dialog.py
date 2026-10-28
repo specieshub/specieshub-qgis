@@ -11,7 +11,7 @@ from qgis.PyQt.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QLabel, QPush
 from .. import auth
 from ..compat import enum_value
 from .connect_dialog import ConnectDialog, disconnect
-from .style import BLUE, primary as _primary, secondary as _secondary
+from .style import accent, primary as _primary, secondary as _secondary
 
 PLUGIN_DIR = os.path.dirname(os.path.dirname(__file__))
 SLOGAN = 'Home for biodiversity data'
@@ -89,7 +89,7 @@ class AboutDialog(QDialog):
         layout.addStretch()
 
         foot = QHBoxLayout()
-        link = QLabel('<a href="https://specieshub.io" style="color: %s; text-decoration: none;">specieshub.io</a>' % BLUE)
+        link = QLabel('<a href="https://specieshub.io" style="color: %s; text-decoration: none;">specieshub.io</a>' % accent(self))
         link.setOpenExternalLinks(True)
         licence = QLabel('Licence GPL-2.0-or-later')
         licence.setStyleSheet('color: palette(mid); padding-left: 10px;')

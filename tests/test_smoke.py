@@ -96,11 +96,11 @@ class SmokeTest(unittest.TestCase):
         from specieshub.dialogs.about_dialog import AboutDialog, plugin_version
         from specieshub.settings import Settings
         dialog = AboutDialog(Settings())
-        self.assertEqual(plugin_version(), '0.1.0')
+        self.assertEqual(plugin_version(), '0.1.1')
         texts = ' '.join(label.text() for label in dialog.findChildren(QLabel))
         self.assertIn('Official plugin for QGIS', texts)
         self.assertIn('Home for biodiversity data', texts)
-        self.assertIn('Version 0.1.0', texts)
+        self.assertIn('Version 0.1.1', texts)
         self.assertEqual(dialog.card_title.text(), 'Not connected')
         self.assertEqual(dialog.card_button.text(), 'Sign in')
         dialog.close()
