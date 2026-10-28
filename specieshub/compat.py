@@ -2,7 +2,7 @@
 
 PyQt6 only accepts scoped enums (QNetworkRequest.Attribute.HttpStatusCodeAttribute);
 PyQt5 accepts both. The plugin always asks through enum_value so one source runs
-on QGIS 3.34 (Qt 5) and QGIS 4 (Qt 6).
+on QGIS 3.44 (Qt 5) and QGIS 4 (Qt 6).
 """
 
 

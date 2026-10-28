@@ -14,11 +14,11 @@ Needs a SpeciesHub account (https://specieshub.io).
 
 ## Development
 
-Requires QGIS 3.34 or later (tested on QGIS 4.2). The plugin is pure Python
+Requires QGIS 3.44 or later (tested on QGIS 3.44 LTR with Qt 5 and QGIS 4.2 with Qt 6). The plugin is pure Python
 and uses only what QGIS ships.
 
 ```
-make test      # unit tests with QGIS's bundled Python
+make test      # unit tests with QGIS's bundled Python (QGIS_APP=/Applications/<QGIS>.app picks the version)
 make deploy    # copy into the local QGIS profiles (QGIS3 and QGIS4)
 make zip       # build specieshub.zip for the plugin repository
 ```

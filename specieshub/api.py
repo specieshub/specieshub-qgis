@@ -15,7 +15,7 @@ from qgis.PyQt.QtNetwork import QNetworkRequest, QNetworkReply
 
 from .compat import enum_value
 
-USER_AGENT = 'SpeciesHub-QGIS/0.1.1'
+USER_AGENT = 'SpeciesHub-QGIS/0.1.2'
 RETRY_STATUSES = (429, 503)
 DEFAULT_RETRY_AFTER_S = 5
 MAX_RETRIES = 4

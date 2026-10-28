@@ -1,14 +1,15 @@
 [general]
 name=SpeciesHub
-qgisMinimumVersion=3.34
+qgisMinimumVersion=3.44
 qgisMaximumVersion=4.99
 supportsQt6=True
 description=Load your SpeciesHub observations into QGIS
 about=Sign in to SpeciesHub and add your observations as a point layer, one row per observation with its notes and recorded field values: all your data, your private data or one group, one observation type, taxon names, in the whole account or in the current map extent. Written to a GeoPackage, refreshable later.
-version=0.1.1
+version=0.1.2
 author=SpeciesHub
 email=info@specieshub.io
-changelog=0.1.1 Links and the spinner readable in dark themes.
+changelog=0.1.2 Needs QGIS 3.44 or later, the oldest version it is tested on.
+    0.1.1 Links and the spinner readable in dark themes.
     0.1.0 Sign in with the browser or a token, add observations, refresh.
 tags=biodiversity,species,observations,occurrences,sites
 homepage=https://specieshub.io
